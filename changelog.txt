@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2024-10-28
+  Changes:
+    - Initial release. This will be released initially as an empty mod, future updates will work towards the goal of fulfilling the mod description: "This aims to simplify the gameplay experience while maintaining the challenge and satisfaction of building complex factories."
