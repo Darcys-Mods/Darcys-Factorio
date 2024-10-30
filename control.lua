@@ -1,4 +1,5 @@
-script.on_event(defines.events.on_built_entity,function(event)
+local EVENTS=defines.events
+script.on_event(EVENTS.on_built_entity,function(event)
 	local player=game.players[event.player_index]
 	--	instant build
 	prepare_build(player)
@@ -6,31 +7,31 @@ end,{{
 	filter='type',
 	type='entity-ghost'
 }})
-script.on_event(defines.events.on_marked_for_upgrade,function(event)
+script.on_event(EVENTS.on_marked_for_upgrade,function(event)
 	local player=game.players[event.player_index]
 	--	instant build
 	prepare_build(player)
 end)
-script.on_event(defines.events.on_player_cancelled_crafting,function(event)
+script.on_event(EVENTS.on_player_cancelled_crafting,function(event)
 	local player=game.players[event.player_index]
 	--	instant hand-crafting
 	instant_crafting_init_storage()
 	instant_crafting_remember_products(event.recipe,event.cancel_count)
 	instant_crafting_remember_ingredients(event.items)
 end)
-script.on_event(defines.events.on_player_deconstructed_area,function(event)
+script.on_event(EVENTS.on_player_deconstructed_area,function(event)
 	local player=game.players[event.player_index]
 	--	instant build
 	prepare_build(player)
 end)
-script.on_event(defines.events.on_player_main_inventory_changed,function(event)
+script.on_event(EVENTS.on_player_main_inventory_changed,function(event)
 	local player=game.players[event.player_index]
 	--	instant build
 	prepare_build(player)
 	--	infinite inventory
 	infinite_inventory_adjust_inventory(player)
 end)
-script.on_event(defines.events.on_pre_player_crafted_item,function(event)
+script.on_event(EVENTS.on_pre_player_crafted_item,function(event)
 	local player=game.players[event.player_index]
 	--	instant hand-crafting
 	instant_crafting_init_storage()
@@ -38,7 +39,7 @@ script.on_event(defines.events.on_pre_player_crafted_item,function(event)
 	instant_crafting_remove_ingredients(player)
 	instant_crafting_add_products(player)
 end)
-script.on_event(defines.events.on_undo_applied,function(event)
+script.on_event(EVENTS.on_undo_applied,function(event)
 	local player=game.players[event.player_index]
 	--	instant build
 	prepare_build(player)
