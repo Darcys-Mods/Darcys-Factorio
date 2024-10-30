@@ -2,6 +2,7 @@
 Version: 1.4.0
 Date: 2024-10-31
   Changes:
+    - Dynamically expand inventory based on fullness.
     - Make hand-crafting instant, but not free.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0

@@ -13,6 +13,23 @@ script.on_event(defines.events.on_player_cancelled_crafting,function(event)
 	instant_crafting_remember_products(event.recipe,event.cancel_count)
 	instant_crafting_remember_ingredients(event.items)
 end)
+script.on_event(defines.events.on_player_main_inventory_changed,function(event)
+	local player=game.players[event.player_index]
+	--	infinite inventory
+	infinite_inventory_adjust_inventory(player)
+end)
+--	infinite inventory
+function infinite_inventory_adjust_inventory(player)
+	local inventory=player.get_main_inventory()
+	local slots_occupied=0
+	for i1=#inventory,1,-1 do
+		local slot=inventory[i1]
+		if slot.count>0 then
+			slots_occupied=slots_occupied+1
+		end
+	end
+	player.character_inventory_slots_bonus=slots_occupied
+end
 --	instant hand-crafting
 function instant_crafting_init_storage()
 	storage.instant_crafting={
